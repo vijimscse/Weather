@@ -2,7 +2,7 @@ package com.khoslalabs.weather.data.dto
 
 import com.google.gson.annotations.SerializedName
 
-data class ListItem(
+data class ForecastDay(
 
 	@field:SerializedName("dt")
 	val dt: Int? = null,
