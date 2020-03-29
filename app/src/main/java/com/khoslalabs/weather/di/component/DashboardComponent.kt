@@ -1,6 +1,6 @@
 package com.khoslalabs.weather.di.component
 
-import com.khoslalabs.weather.DashboardActivity
+import com.khoslalabs.weather.ui.DashboardActivity
 import com.khoslalabs.weather.di.ActivityScope
 import dagger.Subcomponent
 

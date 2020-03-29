@@ -13,12 +13,12 @@ import javax.inject.Singleton
 class NetworkModule {
 
     // @Provides tell Dagger how to create instances of the type that this function
-    // returns (i.e. LoginRetrofitService).
+    // returns (i.e. ApiService).
     // Function parameters are the dependencies of this type.
     @Provides
     @Singleton
-    fun provideLoginRetrofitService(): ApiService {
-        // Whenever Dagger needs to provide an instance of type LoginRetrofitService,
+    fun provideRetrofitService(): ApiService {
+        // Whenever Dagger needs to provide an instance of type ApiService,
         // this code (the one inside the @Provides method) is run.
 
         return Retrofit.Builder()

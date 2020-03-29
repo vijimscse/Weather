@@ -1,0 +1,43 @@
+{
+  "coord": {
+    "lon": 77.45,
+    "lat": 11.47
+  },
+  "weather": [
+    {
+      "id": 800,
+      "main": "Clear",
+      "description": "clear sky",
+      "icon": "01d"
+    }
+  ],
+  "base": "stations",
+  "main": {
+    "temp": 37,
+    "feels_like": 36.4,
+    "temp_min": 37,
+    "temp_max": 37,
+    "pressure": 1009,
+    "humidity": 27
+  },
+  "visibility": 7000,
+  "wind": {
+    "speed": 3.1,
+    "deg": 70
+  },
+  "clouds": {
+    "all": 1
+  },
+  "dt": 1585483820,
+  "sys": {
+    "type": 1,
+    "id": 9206,
+    "country": "IN",
+    "sunrise": 1585442914,
+    "sunset": 1585486860
+  },
+  "timezone": 19800,
+  "id": 1270947,
+  "name": "Gobichettipalayam",
+  "cod": 200
+}

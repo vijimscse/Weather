@@ -5,12 +5,11 @@ import com.khoslalabs.weather.utils.SharedPrefUtils
 import com.khoslalabs.weather.di.component.DashboardComponent
 import com.khoslalabs.weather.di.module.AppModule
 import com.khoslalabs.weather.di.module.NetworkModule
-import com.khoslalabs.weather.di.module.SubcomponentsModule
 import dagger.Component
 import javax.inject.Singleton
 
 @Singleton
-@Component(modules = [AppModule::class, NetworkModule::class, SubcomponentsModule::class])
+@Component(modules = [AppModule::class, NetworkModule::class])
 interface ApplicationComponent {
     fun dashboardComponent(): DashboardComponent.Factory
 }
