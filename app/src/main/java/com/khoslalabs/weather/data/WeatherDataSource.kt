@@ -12,11 +12,15 @@ import javax.inject.Inject
 class WeatherDataSource @Inject constructor(private val mDataSource: DataSource) {
 
     //Get current weather info
-    fun getCurrentTemperature(): LiveData<CurrentWeatherInfo> {
+    fun getCurrentTemperature(latitude: Double, longtitude: Double): LiveData<CurrentWeatherInfo> {
         var weatherInfo = MutableLiveData<CurrentWeatherInfo>()
-        mDataSource.getCurrentTemperature(object : ResponseListener<CurrentWeatherInfo> {
+        mDataSource.getCurrentTemperature(latitude, longtitude, object : ResponseListener<CurrentWeatherInfo> {
             override fun onResponse(appResponse: CurrentWeatherInfo?) {
                 weatherInfo.value = appResponse
+            }
+
+            override fun onError(error: String?) {
+                TODO("Not yet implemented")
             }
         })
 
@@ -29,6 +33,10 @@ class WeatherDataSource @Inject constructor(private val mDataSource: DataSource)
         mDataSource.getForecastData(object : ResponseListener<ForecastInfo> {
             override fun onResponse(appResponse: ForecastInfo?) {
                 forecastInfo.value = appResponse
+            }
+
+            override fun onError(error: String?) {
+                TODO("Not yet implemented")
             }
         })
 

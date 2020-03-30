@@ -17,8 +17,8 @@ class DashboardViewModel @Inject constructor(private val weatherRepository: Weat
     private val _mForecastInfo = MutableLiveData<ForecastInfo>()
     val mForecastInfo: LiveData<ForecastInfo> = _mForecastInfo
 
-    fun getCurrentWeatherInfo() {
-        val result = weatherRepository.getCurrentWeatherInfo()
+    fun getCurrentWeatherInfo(latitude: Double, longtitude: Double) {
+        val result = weatherRepository.getCurrentWeatherInfo(latitude, longtitude)
         result.observeForever {
             _mCurrentWeatherInfo.value = it
         }

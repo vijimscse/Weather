@@ -15,8 +15,8 @@ import javax.inject.Singleton
 class WeatherRepository @Inject constructor(private val mWeatherDataSource: WeatherDataSource) {
 
     //Get current weather info
-    fun getCurrentWeatherInfo(): LiveData<CurrentWeatherInfo> {
-        return mWeatherDataSource.getCurrentTemperature()
+    fun getCurrentWeatherInfo(latitude: Double, longtitude: Double): LiveData<CurrentWeatherInfo> {
+        return mWeatherDataSource.getCurrentTemperature(latitude, longtitude)
     }
 
     //Get current weather info

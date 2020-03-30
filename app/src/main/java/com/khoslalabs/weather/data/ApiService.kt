@@ -8,19 +8,20 @@ import retrofit2.http.Query
 
 interface ApiService {
     companion object {
-        const val OFFLINE = true
+        const val OFFLINE = false
     }
 
     @GET("weather")
     fun getCurrentWeatherInfo(
-        @Query("q") cityName: String, @Query("units") units: String,
+        @Query("lat") latitude: Double,
+        @Query("lon") longtitude: Double,
+        @Query("units") units: String,
         @Query("appid") appId: String
     ): Call<CurrentWeatherInfo>
 
     @GET("forecast")
     fun getForecast(
         @Query("q") cityName: String, @Query("units") units: String,
-        @Query("appid") appId: String,
-        @Query("cnt") count: Int
+        @Query("appid") appId: String
     ): Call<ForecastInfo>
 }

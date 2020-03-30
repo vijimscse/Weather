@@ -1,40 +1,40 @@
 {
   "coord": {
-    "lon": 77.45,
-    "lat": 11.47
+    "lon": 77.44,
+    "lat": 11.45
   },
   "weather": [
     {
-      "id": 800,
-      "main": "Clear",
-      "description": "clear sky",
-      "icon": "01d"
+      "id": 803,
+      "main": "Clouds",
+      "description": "broken clouds",
+      "icon": "04d"
     }
   ],
   "base": "stations",
   "main": {
-    "temp": 37,
-    "feels_like": 36.4,
-    "temp_min": 37,
-    "temp_max": 37,
-    "pressure": 1009,
-    "humidity": 27
+    "temp": 36,
+    "feels_like": 35.07,
+    "temp_min": 36,
+    "temp_max": 36,
+    "pressure": 1011,
+    "humidity": 34
   },
   "visibility": 7000,
   "wind": {
-    "speed": 3.1,
-    "deg": 70
+    "speed": 5.1,
+    "deg": 90
   },
   "clouds": {
-    "all": 1
+    "all": 74
   },
-  "dt": 1585483820,
+  "dt": 1585558423,
   "sys": {
     "type": 1,
     "id": 9206,
     "country": "IN",
-    "sunrise": 1585442914,
-    "sunset": 1585486860
+    "sunrise": 1585529279,
+    "sunset": 1585573263
   },
   "timezone": 19800,
   "id": 1270947,

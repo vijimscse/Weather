@@ -18,16 +18,16 @@ class DataSource @Inject constructor(private val mApiService: ApiService) {
     lateinit var mContext: Context
 
     //Current Temperature data
-    fun getCurrentTemperature(listener: ResponseListener<CurrentWeatherInfo>) {
+    fun getCurrentTemperature(latitude: Double, longtitude: Double, listener: ResponseListener<CurrentWeatherInfo>) {
         if (ApiService.OFFLINE) {
             val json = FileReader.readFromAssets(mContext, "mockdata/current_weather.json")
             val type: Type = object : TypeToken<CurrentWeatherInfo>() {}.type
             val response: CurrentWeatherInfo = Gson().fromJson(json, type)
-            Log.d("weather response", ""+ response)
             listener.onResponse(response)
         } else {
             mApiService.getCurrentWeatherInfo(
-                "Gobichettipalayam",
+                latitude,
+                longtitude,
                 "metric",
                 "f120edeb83b2c4e0ea804b6718ba0b19"
             ).enqueue(object : Callback<CurrentWeatherInfo> {
@@ -35,13 +35,12 @@ class DataSource @Inject constructor(private val mApiService: ApiService) {
                     call: Call<CurrentWeatherInfo>,
                     response: Response<CurrentWeatherInfo>
                 ) {
-                    Log.d("weather response", ""+ response)
                     listener.onResponse(response.body())
                 }
 
                 override fun onFailure(call: Call<CurrentWeatherInfo>, t: Throwable) {
                     Log.d("weather response", "on failure")
-                   // listener.onResponse()
+                    listener.onError(t.message)
                 }
             })
         }
@@ -59,8 +58,7 @@ class DataSource @Inject constructor(private val mApiService: ApiService) {
             mApiService.getForecast(
                 "Gobichettipalayam",
                 "metric",
-                "f120edeb83b2c4e0ea804b6718ba0b19",
-                6
+                "f120edeb83b2c4e0ea804b6718ba0b19"
             ).enqueue(object : Callback<ForecastInfo> {
                 override fun onResponse(
                     call: Call<ForecastInfo>,
@@ -73,6 +71,7 @@ class DataSource @Inject constructor(private val mApiService: ApiService) {
                 override fun onFailure(call: Call<ForecastInfo>, t: Throwable) {
                     //listener.onResponse()
                     Log.d("weather response", "on failure")
+                    listener.onError(t.message)
                 }
             })
         }
